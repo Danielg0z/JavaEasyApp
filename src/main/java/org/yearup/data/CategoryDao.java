@@ -11,4 +11,5 @@ public interface CategoryDao
     Category create(Category category);
     Category update(int categoryId, Category category);
     Category delete(int categoryId);
+    Category getByName(String name);
 }

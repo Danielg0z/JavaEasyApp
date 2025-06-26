@@ -36,6 +36,7 @@ public class CategoriesController
     // add the appropriate annotation for a get action
     // get all categories
     @GetMapping
+    @PreAuthorize("permitAll()")
     public List<Category> getAll()
     {
         // find and return all categories
@@ -45,6 +46,7 @@ public class CategoriesController
     // add the appropriate annotation for a get action
     // get all categories by the category ID
     @GetMapping("/{id}")
+    @PreAuthorize("permitAll()")
     public ResponseEntity<Category> getById(@PathVariable int id)
     {
         Category category = categoryDao.getById(id);
@@ -60,6 +62,7 @@ public class CategoriesController
     // GET /api/categories/{categoryId}/products
     // get products by category
     @GetMapping("{categoryId}/products")
+    @PreAuthorize("permitAll()")
     public List<Product> getProductsById(@PathVariable int categoryId)
     {
         return productDao.listByCategoryId(categoryId);

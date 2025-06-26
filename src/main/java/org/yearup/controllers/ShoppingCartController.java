@@ -32,7 +32,7 @@ public class ShoppingCartController
             User user = userDao.getByUserName(userName);
             int userId = user.getId();
 
-            // use the shoppingcartDao to get all items in the cart and return the cart
+            // use the shoppingCartDao to get all items in the cart and return the cart
             return null;
         }
         catch(Exception e)
@@ -52,5 +52,7 @@ public class ShoppingCartController
 
     // add a DELETE method to clear all products from the current users cart
     // https://localhost:8080/cart
+
+
 
 }

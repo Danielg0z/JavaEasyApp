@@ -24,7 +24,7 @@ public class ProductsController
         this.productDao = productDao;
     }
 
-    @GetMapping("")
+    @GetMapping
     @PreAuthorize("permitAll()")
     public List<Product> search(@RequestParam(name="cat", required = false) Integer categoryId,
                                 @RequestParam(name="minPrice", required = false) BigDecimal minPrice,
@@ -61,7 +61,7 @@ public class ProductsController
         }
     }
 
-    @PostMapping()
+    @PostMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Product addProduct(@RequestBody Product product)
     {
@@ -81,7 +81,7 @@ public class ProductsController
     {
         try
         {
-            productDao.create(product);
+            productDao.update(id,product);
         }
         catch(Exception ex)
         {
