@@ -17,7 +17,7 @@ import java.util.List;
 // add annotation to allow cross site origin requests
 
 @RestController
-@RequestMapping("/api/categories")
+@RequestMapping("/categories")
 @CrossOrigin
 public class CategoriesController
 {
@@ -45,7 +45,7 @@ public class CategoriesController
 
     // add the appropriate annotation for a get action
     // get all categories by the category ID
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     @PreAuthorize("permitAll()")
     public ResponseEntity<Category> getById(@PathVariable int id)
     {
@@ -84,7 +84,7 @@ public class CategoriesController
 
     // add annotation to call this method for a PUT (update) action - the url path must include the categoryId
     // add annotation to ensure that only an ADMIN can call this function
-    @PutMapping("/{id}")
+    @PutMapping("{id}")
     @PreAuthorize("hasRole('ADMIN')") // only Admins have access to update
     //Response Entities give more precise control for HTTPS response
     public ResponseEntity<Category> updateCategory(@PathVariable int id, @RequestBody Category category)
