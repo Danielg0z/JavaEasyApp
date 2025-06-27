@@ -9,13 +9,17 @@ public interface ShoppingCartDao
 {
     ShoppingCart getByUserId(int userId);
 
-    void addItem(int userId, ShoppingCart item);
+    void addProduct(int userId, int productId);
 
     void updateItemQuantity(int userId, int productId, int quantity);
 
     void removeItem(int userId, int productId);
 
     void clearCart(int userId);
+
+    void incrementQuantity(int userId, int productId);
+
+    void decrementQuantity(int userId, int productId);
 
     List<ShoppingCartItem> getItems(int userId);
 }
